@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ShopEasy BD</title>
   <style>
     body {
@@ -17,35 +18,147 @@
       border-radius: 12px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
       max-width: 400px;
+      cursor: pointer;
     }
     .product img {
       width: 100%;
       border-radius: 10px;
+      margin-top: 20px;
     }
     .btn {
-      display: inline-block;
-      margin-top: 10px;
       padding: 10px 20px;
       background: #25D366;
       color: white;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+    form {
+      margin-top: 15px;
+      text-align: left;
+    }
+    input, button {
+      padding: 10px;
+      margin: 8px 0;
+      width: 95%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    p.bkash-number {
+      font-weight: bold;
+      margin: 10px 0;
+      font-size: 16px;
+      color: #d35400; /* একটু হালকা কমলা রঙ */
     }
   </style>
 </head>
 <body>
+
   <h1>🛒 ShopEasy BD</h1>
-  <p>ঘরে বসেই সুলভ দামে পণ্য অর্ডার করুন</p>  <div class="product">
+  <p>ঘরে বসেই সুলভ দামে পণ্য অর্ডার করুন</p>
+
+  <!-- Gold Watch -->
+  <div class="product" id="gold" onclick="showProduct('gold')">
     <h2>🟡 Gold Watch</h2>
-    <img src="FB_IMG_1750255936134.jpg" alt="Gold Watch">
     <p>দাম: ৭৫০ টাকা</p>
-    <a class="btn" href="https://wa.me/8801940559067?text=আমি Gold Watch অর্ডার করতে চাই">Order Now</a>
-  </div>  <div class="product">
+    <img src="images/FB_IMG_1750255936134.jpg" alt="Gold Watch" />
+    <button class="btn" onclick="showProduct('gold'); event.stopPropagation();">অর্ডার করুন</button>
+  </div>
+
+  <!-- Royal Blue Watch -->
+  <div class="product" id="blue" onclick="showProduct('blue')">
     <h2>💙 Royal Blue Watch</h2>
-    <img src="S061b1371f9bc46c0b70ca169ac6fca72Z.jpg_720x720q80.jpg" alt="Royal Blue Watch">
     <p>দাম: ৮৯০ টাকা</p>
-    <a class="btn" href="https://wa.me/8801940559067?text=আমি Royal Blue Watch অর্ডার করতে চাই">Order Now</a>
-  </div>  <p>📞 WhatsApp: <strong>01940559067</strong></p>
+    <img src="images/S061b1371f9bc46c0b70ca169ac6fca72Z.jpg_720x720q80.jpg" alt="Royal Blue Watch" />
+    <button class="btn" onclick="showProduct('blue'); event.stopPropagation();">অর্ডার করুন</button>
+  </div>
+
+  <!-- Forms container -->
+  <div id="formsContainer" class="hidden">
+    <!-- Gold Watch Form -->
+    <div id="form-gold" class="hidden">
+      <h2>🟡 Gold Watch অর্ডার ফর্ম</h2>
+      <form action="https://formsubmit.co/ha7097277@gmail.com" method="POST">
+        
+        <label for="name-gold">আপনার নাম</label>
+        <input type="text" id="name-gold" name="name" placeholder="আপনার নাম" required />
+
+        <label for="phone-gold">মোবাইল নম্বর</label>
+        <input type="tel" id="phone-gold" name="phone" placeholder="মোবাইল নম্বর" required />
+
+        <label for="address-gold">ঠিকানা</label>
+        <input type="text" id="address-gold" name="address" placeholder="ঠিকানা" required />
+
+        <p class="bkash-number">বিকাশ নম্বর: 01940559067</p>
+
+        <label for="trx-gold">বিকাশ ট্রানজেকশন আইডি</label>
+        <input type="text" id="trx-gold" name="trxID" placeholder="বিকাশ ট্রানজেকশন আইডি লিখুন" required />
+
+        <input type="hidden" name="product" value="Gold Watch" />
+        <button type="submit">✅ অর্ডার কনফার্ম</button>
+      </form>
+    </div>
+
+    <!-- Blue Watch Form -->
+    <div id="form-blue" class="hidden">
+      <h2>💙 Royal Blue Watch অর্ডার ফর্ম</h2>
+      <form action="https://formsubmit.co/ha7097277@gmail.com" method="POST">
+
+        <label for="name-blue">আপনার নাম</label>
+        <input type="text" id="name-blue" name="name" placeholder="আপনার নাম" required />
+
+        <label for="phone-blue">মোবাইল নম্বর</label>
+        <input type="tel" id="phone-blue" name="phone" placeholder="মোবাইল নম্বর" required />
+
+        <label for="address-blue">ঠিকানা</label>
+        <input type="text" id="address-blue" name="address" placeholder="ঠিকানা" required />
+
+        <p class="bkash-number">বিকাশ নম্বর: 01940559067</p>
+
+        <label for="trx-blue">বিকাশ ট্রানজেকশন আইডি</label>
+        <input type="text" id="trx-blue" name="trxID" placeholder="বিকাশ ট্রানজেকশন আইডি লিখুন" required />
+
+        <input type="hidden" name="product" value="Royal Blue Watch" />
+        <button type="submit">✅ অর্ডার কনফার্ম</button>
+      </form>
+    </div>
+  </div>
+
+  <p>📞 যোগাযোগ: <strong>01940559067</strong></p>
+
+  <script>
+    function showProduct(productId) {
+      // ফর্ম কনটেইনার দেখানো
+      document.getElementById('formsContainer').classList.remove('hidden');
+
+      // সব ফর্ম লুকানো
+      document.getElementById('form-gold').classList.add('hidden');
+      document.getElementById('form-blue').classList.add('hidden');
+
+      // শুধু যেটা ক্লিক করা হয়েছে ফর্ম দেখানো
+      document.getElementById('form-' + productId).classList.remove('hidden');
+
+      // প্রোডাক্ট গুলো লুকানো
+      document.getElementById('gold').style.display = 'none';
+      document.getElementById('blue').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
